@@ -95,3 +95,13 @@ ql repo https://github.com/leochen-g/dify-schedule.git "ql_" "utils" "sdk"
 ## 许可
 
 [MIT](./LICENSE)
+
+docker run -dit \
+  -v $PWD/ql/data:/ql/data \
+  -p 5700:5700 \
+  --name qinglong \
+  --hostname qinglong \
+  --restart unless-stopped \
+  whyour/qinglong:latest
+
+  docker exec -it qinglong bash

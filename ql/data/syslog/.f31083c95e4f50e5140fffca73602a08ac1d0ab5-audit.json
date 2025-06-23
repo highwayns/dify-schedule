@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 7
+    },
+    "auditLog": "/ql/data/syslog/.f31083c95e4f50e5140fffca73602a08ac1d0ab5-audit.json",
+    "files": [
+        {
+            "date": 1750677509316,
+            "name": "/ql/data/syslog/2025-06-23.log",
+            "hash": "fe6cb146abb66f3e465e046eb1211c06cbadb488451e2fdd3f91aab223390531"
+        }
+    ],
+    "hashType": "sha256"
+}
