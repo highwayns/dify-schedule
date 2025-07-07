@@ -55,6 +55,7 @@
 
 ```shell
 ql repo https://github.com/leochen-g/dify-schedule.git "ql_" "utils" "sdk"
+ql raw https://raw.githubusercontent.com/highwayns/dify-schedule/refs/heads/main/sdk/dify.py
 ```
 2、在面板菜单-依赖管理-NodeJs 添加依赖 `axios`
 
@@ -105,3 +106,86 @@ docker run -dit \
   whyour/qinglong:latest
 
   docker exec -it qinglong bash
+
+ 命令总览与用法详解：
+序号	命令	说明
+1	update	更新并重启青龙面板
+- 作用：从 GitHub 拉取最新的面板代码并自动重启容器或服务。
+- 使用场景：你希望将青龙升级到最新版本时。
+2	extra	运行自定义脚本
+- 会执行 config 目录下 extra.sh 中定义的脚本。
+- 使用场景：你在 extra.sh 中定义了比如环境变量处理、私有脚本安装等逻辑。
+3	raw <fileurl>	下载指定脚本文件
+- 例子：raw https://example.com/my_script.js
+- 使用场景：从外部网址临时获取单个脚本进行调试或执行。
+4	repo <repo_url> <path> <blacklist> <dependence> <branch> <extensions>	克隆/拉取脚本仓库
+- 这是最常用的命令，用于从 Git 仓库拉取脚本。
+- 示例：repo https://github.com/user/repo.git "scripts" "env.js" "requirements.txt" "main" "js py"
+- 参数说明：
+- repo_url: 仓库地址
+- path: 拉取后存放的目录
+- blacklist: 拉取时要忽略的文件名
+- dependence: 依赖文件名，比如 requirements.txt
+- branch: 指定分支，默认是 main
+- extensions: 要识别的脚本文件后缀
+5	rmlog <days>	删除旧日志
+- 删除几天前的任务执行日志。
+- 示例：rmlog 7（删除 7 天前的日志）
+- 用于定期清理磁盘空间。
+6	bot	启动 tg-bot（Telegram 机器人）
+- 需提前配置 bot token 和 chat id。
+- 可接收通知、执行远程任务命令等。
+- 启动后自动监听并运行。
+7	check	检测并修复青龙环境问题
+- 会检测 Node、Python 环境是否异常，修复依赖、修复路径问题。
+- 使用场景：青龙启动异常、脚本执行报错。
+8	resetlet	重置登录错误次数
+- 你在后台登录输错太多次会被锁，这条命令可解锁。
+9	resettfa	禁用两步验证登录（2FA）
+- 如果你开启了 2FA 但无法获取验证码，可通过此命令禁用 2FA。
+10	resetpwd	重置管理员登录密码
+- 运行后系统会提示你输入新密码。
+11	resetname	重置管理员用户名
+- 运行后提示输入新用户名。
+
+💡 常见使用示例
+从 GitHub 拉取脚本仓库：
+
+bash
+コピーする
+編集する
+repo https://github.com/KingRan/KR/main "scripts" "" "" "main" "js"
+下载并执行一个脚本：
+
+bash
+コピーする
+編集する
+raw https://raw.githubusercontent.com/xxx/script.js
+清理旧日志：
+
+bash
+コピーする
+編集する
+rmlog 10
+启动机器人监听 Telegram 命令：
+
+bash
+コピーする
+編集する
+bot
+修复青龙环境（如出错或缺少依赖）：
+
+bash
+コピーする
+編集する
+check
+🛠️ 故障排查建议
+如果你运行命令出现“命令输入错误...”，请检查：
+
+是否在正确的终端容器中执行（如 docker exec -it qinglong bash）。
+
+是否是 root 权限。
+
+是否在青龙 v2.x / v3.x 中使用这些命令（不同版本可能命令变化）。
+
+命令是否拼写错误或缺少必要参数。
