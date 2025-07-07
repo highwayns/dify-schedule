@@ -50,11 +50,13 @@ def call_ScheduleTest(platform, purpose):
 
 if __name__ == "__main__":
     # 添加命令行参数解析
-    parser = argparse.ArgumentParser(description="Generate Dify schedule test command.")
-    parser.add_argument("platform", type=str, help="platform to send the request to, such as 'qinglong', 'telegram', etc.")
-    parser.add_argument("purpose", type=str, help="purpose of the command.")
-    args = parser.parse_args()
+    #parser = argparse.ArgumentParser(description="Generate Dify schedule test command.")
+    #parser.add_argument("platform", type=str, help="platform to send the request to, such as 'qinglong', 'telegram', etc.")
+    #parser.add_argument("purpose", type=str, help="purpose of the command.")
+    #args = parser.parse_args()
     # 生成工作流配置
-    call_ScheduleTest(args.platform, args.purpose)
+    platform = "qinglong"  # 可以根据需要修改
+    purpose = "毎日新聞"  # 可以根据需要修改
+    call_ScheduleTest(platform, purpose)    
 
     print(f"✅ 生成完了！")
