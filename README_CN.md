@@ -56,6 +56,8 @@
 ```shell
 ql repo https://github.com/leochen-g/dify-schedule.git "ql_" "utils" "sdk"
 ql raw https://raw.githubusercontent.com/highwayns/dify-schedule/refs/heads/main/sdk/dify.py
+ql raw https://raw.githubusercontent.com/highwayns/dify-schedule/refs/heads/main/sdk/telegram_user_notify.sh
+ql raw https://raw.githubusercontent.com/highwayns/dify-schedule/refs/heads/main/sdk/telegram_group_notify.sh
 ```
 2、在面板菜单-依赖管理-NodeJs 添加依赖 `axios`
 
