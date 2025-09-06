@@ -1,5 +1,2 @@
-20 6 * * * real_time=false no_tee=true ID=7 task raw_sdk_dify.py
-55 15 * * * real_time=false no_tee=true ID=6 task raw_sdk_notify_line.py
 11 6 * * * real_time=false no_tee=true ID=5 task raw_sdk_telegram_group_notify.sh
 55 4 * * * real_time=false no_tee=true ID=4 task raw_sdk_telegram_user_notify.sh
-11 1 * * * real_time=false no_tee=true ID=1 task highwayns_dify-schedule/ql_dify_workflow.js
