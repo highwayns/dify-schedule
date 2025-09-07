@@ -46,10 +46,12 @@ def call_ScheduleTest(platform, purpose):
         # 保存响应到文件
         script_text = result.get("data", {}).get("outputs", "").get("text", "")
         #send_to_qinglong(script_text)
-        print(f"收到命令: {script_text}")
+        print(f"{script_text}")
+        print("Follow us:https://t.me/%2BgK1gYBp9xE4wY2U1")
     else:
         print(f"❌ 请求失败，状态码: {response.status_code}")
         print(html.escape(response.text))
+        
 
 #def send_to_qinglong(command):
     # 示例：通过 exec 发送脚本到容器中执行
@@ -72,7 +74,7 @@ if __name__ == "__main__":
 EOF
 )
 
-MESSAGE=$(printf "📢 每日新闻播报：\n%s" "$(printf "%s" "$NEWS" | sed 's/\\n/\n/g')")
+MESSAGE=$(printf "📢 毎日新聞：\n%s" "$(printf "%s" "$NEWS" | sed 's/\\n/\n/g')")
 
 # 发送 POST 请求到 Telegram API
 curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" \

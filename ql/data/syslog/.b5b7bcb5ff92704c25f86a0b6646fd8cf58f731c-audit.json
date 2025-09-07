@@ -9,6 +9,11 @@
             "date": 1757116522488,
             "name": "/ql/data/syslog/2025-09-06.log",
             "hash": "21d7de12218644797fb308157c493ef083ef8b4da27b3bcd71bf7c8e1ba1fd5d"
+        },
+        {
+            "date": 1757202483538,
+            "name": "/ql/data/syslog/2025-09-07.log",
+            "hash": "875a992cd446da6af162d4221ae68b40979663402d5551f400cf22416a2a0dd1"
         }
     ],
     "hashType": "sha256"
